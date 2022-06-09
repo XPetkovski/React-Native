@@ -1,0 +1,59 @@
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
+    TouchableHighlight,
+    TouchableNativeFeedback,
+    SafeAreaView,
+    Button,
+    Alert,
+    StatusBar,
+    Dimensions,
+    TextInput,
+    Switch
+} from 'react-native';
+import Screen from "./app/screens/Screen";
+import {useState} from "react";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import AppText from "./app/components/AppText/AppText";
+
+const categories = [
+    {label: "Mebel", value: 1},
+    {label: "Bela Tehnika", value: 2},
+    {label: "Auto delovi", value: 3}
+]
+
+export default function App() {
+    // const [firstName, setFirstName] = useState('');
+    const [isNew, setIsNew] = useState(false);
+    const [category, setCategory] = useState(categories[0]);
+    return (
+        <Screen>
+            <AppPicker
+                selectedItem={category}
+                onSelectItem={item => setCategory(item)}
+                items={categories} icon="apps" placeholder="Username"/>
+            <AppTextInput icon="email" placeholder="E-mail"/>
+            {/*<Switch value={isNew} onValueChange={newValue => setIsNew(newValue)}/>*/}
+        </Screen>
+    );
+    // <ViewImageScreen/>;
+    // <ListingDetailsScreen />
+    // <ListingDetailsScreen/>;
+    //   <View style={{
+
+    //     backgroundColor: '#f8f4f4',
+    //     padding: 20,
+    //     paddingTop: 100
+    // }}>
+    //     <Card title="Red Jacket For Sale"
+    //           subTitle="100$"
+    //           image={require("./app/assets/jacket.jpg")}/>
+    // </View>;
+}
+
+
